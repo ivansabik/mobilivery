@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title></title>
@@ -25,6 +26,9 @@
             <!-- Características del artículo !-->
             <form action="<?php echo site_url('actual/agregar/'); ?>" method="post" data-ajax="false" id="frmAgregar">
                 <input type="hidden" name="idArticulo" value="<?php echo $articuloMenu->id; ?>">
+                <input type="hidden" name="nombreArticulo" value="<?php echo $articuloMenu->nombre; ?>">
+                <input type="hidden" name="nombreCategoria" value="<?php echo $titulo; ?>">
+
                 <?php
                 foreach ($articuloMenu->caracteristicas as $caracteristica) {
                     echo $caracteristica->toHtml();

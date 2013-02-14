@@ -43,3 +43,10 @@ height: 33px;
 padding-left: 34px;
 background: url("../imgs/twitter.png") no-repeat scroll 0 0 transparent;
 }
+
+.google label {
+display: inline-block;
+height: 33px;
+padding-left: 34px;
+background: url("../imgs/google.png") no-repeat scroll 0 0 transparent;
+}

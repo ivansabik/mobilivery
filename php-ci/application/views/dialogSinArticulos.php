@@ -12,12 +12,11 @@
     <body>
         <div data-role="dialog">
             <div data-role="header" data-theme="<?php echo $data_theme_header; ?>">
-                <h3>Articulo agregado</h3>
+                <h3>No hay artículos</h3>
             </div>
             <div data-role="content" data-theme="<?php echo $data_theme_page; ?>">
-                <h3>El artículo fue agregado a su orden</h3>
-                <a href="<?php echo site_url('actual/ver');?>" data-role="button">Ver mi orden</a>
-                <a href="#" data-role="button" data-rel="back">Ir a categorías</a>
+                <h3>No hay ningún artículo en tu orden aún</h3>
+                <a href="#" data-role="button" data-rel="back">Regresar</a>
             </div>
         </div>
     </body>

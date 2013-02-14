@@ -32,9 +32,14 @@ class Actual extends CI_Controller {
 
     private function construyeArticuloOrden($params) {
         $articuloOrden = new ArticuloOrden();
-        $articuloOrden->idArticuloMenu = $params['idArticulo'];
+        $articuloMenu = new ArticuloMenu();
+        $articuloMenu->load($params['idArticulo']);
+        $articuloOrden->idArticuloMenu = $articuloMenu->id;
         $articuloOrden->comentarios = $params['comentarios'];
         $articuloOrden->cantidad = $params['cantidad'];
+        $articuloOrden->nombreArticulo = $articuloMenu->nombre;
+        $articuloOrden->nombreCategoria = $articuloMenu->nombreCategoria;        
+        $articuloOrden->precio = $articuloMenu->precio;
         // Construye opciones
         foreach ($params as $key => $value) {
             // Es una opción
@@ -46,11 +51,19 @@ class Actual extends CI_Controller {
         }
         return $articuloOrden;
     }
-    
+
     public function ver() {
-        $orden = 10;
-        $data['orden'] = $orden;
-        $this->load->view('orden', $data);
+        $ordenActual = $this->nativesession->get('ordenActual');
+        $data['data_theme_header'] = 'c';
+        $data['data_theme_page'] = 'd';
+        $data['data_theme_footer'] = 'a';
+        if (!$ordenActual) {
+            $this->load->view('dialogSinArticulos', $data);
+        } else {
+            $data['titulo'] = 'Orden';
+            $data['orden'] = $ordenActual;
+            $this->load->view('orden', $data);
+        }
     }
 
 }
