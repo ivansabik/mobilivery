@@ -1,34 +1,98 @@
-.body {
-    font-size: 20px;
-    font-family: Cambria, Georgia, serif;
+@charset "utf-8";
+body  {
+    margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+    padding: 0;
+    text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+    color: #000000;
+    background-color: #E1F0FF;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 100%;
 }
 
-h1, h3 {
-    font-family: Cambria, Georgia, serif;
+.twoColElsLt #container { 
+    width: 46em;  /* this width will create a container that will fit in an 800px browser window if text is left at browser default font sizes */
+    background: #FFFFFF;
+    margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
+    border: 1px solid #000000;
+    text-align: left; /* this overrides the text-align: center on the body element. */
+} 
+
+.twoColElsLt #sidebar1 {
+    float: left; 
+    width: 12em; /* since this element is floated, a width must be given */
+    background: #FFFFFF; /* the background color will be displayed for the length of the content in the column, but no further */
+    padding: 15px 0; /* top and bottom padding create visual space within this div */
+}
+.twoColElsLt #sidebar1 h3, .twoColElsLt #sidebar1 p {
+    margin-left: 10px; /* the left and right margin should be given to every element that will be placed in the side columns */
+    margin-right: 10px;
 }
 
-.contenedor {
-    width:800px;
-    margin-left: auto ;
-    margin-right: auto ;
+.twoColElsLt #mainContent {
+    margin: 0 1.5em 0 13em; /* the right margin can be given in ems or pixels. It creates the space down the right side of the page. */
+} 
+
+.fltrt { /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+    float: right;
+    margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page */
+    float: left;
+    margin-right: 8px;
+}
+.clearfloat { /* this class should be placed on a div or break element and should be the final element before the close of a container that should fully contain a float */
+    clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
 }
 
-.contenedorMenu {
-    background-color:#99ff66;
-    float:left;
-    width:200px;
+.powered {
+    font-size: 9px;
+    line-height: -50px;
 }
 
-.contenedorContenido {
-    background-color:#ffff66;
-    float:left;
-    width:600px;
+.button {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    padding: .5em 2em .55em;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);
+    -webkit-border-radius: .5em; 
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    width: 90px;
+}
+.button:hover {
+    text-decoration: none;
+}
+.button:active {
+    position: relative;
+    top: 1px;
 }
 
-.menu {
-    padding: 15px;
+.orange {
+    color: #fef4e9;
+    border: solid 1px #da7c0c;
+    background: #f78d1d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+    background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
 }
-
-.contenido {
-    padding: 15px;
+.orange:hover {
+    background: #f47c20;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
+    background: -moz-linear-gradient(top,  #f88e11,  #f06015);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
+}
+.orange:active {
+    color: #fcd3a5;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
+    background: -moz-linear-gradient(top,  #f47a20,  #faa51a);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f47a20', endColorstr='#faa51a');
 }

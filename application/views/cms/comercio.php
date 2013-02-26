@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Untitled Document</title>
+        <link href="twoColElsLt.css" rel="stylesheet" type="text/css"><!--[if IE]>
+        <style type="text/css"> 
+        /* place css fixes for all versions of IE in this conditional comment */
+        .twoColElsLt #sidebar1 { padding-top: 30px; }
+        .twoColElsLt #mainContent { zoom: 1; padding-top: 15px; }
+        /* the above proprietary zoom property gives IE the hasLayout it needs to avoid several bugs */
+        </style>
+        <![endif]-->
         <link href="<?php echo base_url('css/cms.css'); ?>" rel="stylesheet" type="text/css" />
         <?php echo $map['js']; ?>
-    <body>
-        <div class="contenedor">
-            <div class="contenedorMenu">
-                <div class="menu">
-                    <h3><a href="<?php echo site_url('cms/editarComercio'); ?>" id="editarComercio">Editar info comercio</a></h3>
-                    <h3>Editar categorías</h3>
-                    <h3>Editar artículos</h3>
-                    <h3>Editar características</h3>
-                    <h3>Logout</h3>
-                </div>
+    </head>
+
+    <body class="twoColElsLt">
+        <div id="container">
+            <div id="sidebar1">
+                <p><a href="<?php echo site_url('cms/editarComercio'); ?>" class="button orange">Editar info comercio</a></p>
+                <p><a href="#" class="button orange">Editar categorías</a></p>
+                <p><a href="#" class="button orange">Editar artículos</a></p>
+                <p><a href="#" class="button orange">Editar características</a></p>
+                <p><a href="#" class="button orange">Logout</a></p>
             </div>
-            <div class="contenedorContenido">
-                <div class="contenido" id="contenido">
+            <div id="mainContent">
+                <div id="contenido">
                     <label for="nombre">Nombre:</label>
                     <input id="nombre" value="<?php echo $comercio->nombre; ?>"/></br>
                     <label for="">Logo:</label></br>
-                    <img src="<?php echo base_url($comercio->logo); ?>" /></br>
+                    <img src="<?php echo base_url('imgs/'.$comercio->logo); ?>" /></br>
                     <button id="">Cargar imagen</button></br>
                     <label for="">Radio de cobertura:</label>
                     <input id="" value="<?php echo $comercio->radioCobertura; ?>"/></br>
@@ -46,9 +53,12 @@
                     <input id="" />
                     <h3>Ubicación</h3>
                     <?php echo $map['html']; ?>
-                    <button id="">Actualizar</button>
+                    <p><a id="" class="button orange">Actualizar</a></p>
                 </div>
             </div>
+        </div>
+        <div class="powered">
+            <p>Un servicio de</br><a href="#"><img src="<?php echo base_url('imgs/mobilivery.png'); ?>" width="100" height="22" alt="Mobilivery"></a></p>
         </div>
     </body>
 </html>

@@ -41,7 +41,7 @@
 $route['default_controller'] = "appHandler";
 $route['404_override'] = '';
 $route['movil'] = 'movil/principalMovil';
-$route['cms'] = 'cms/principalCMS';
+$route['cms'] = 'cms/editarComercio';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
