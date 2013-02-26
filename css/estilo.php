@@ -66,3 +66,14 @@ width: 230px;
 .nobold {
 font-weight:normal;
 }
+
+a img {
+    max-width: 95%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
+
+.powered {
+    font-size: 9px;
+    text-align: center;
+}

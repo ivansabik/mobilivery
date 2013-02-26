@@ -61,7 +61,7 @@ class Actual extends CI_Controller {
         $this->Comercio->load();
         $data['comercio'] = $this->Comercio;
         if (!$ordenActual) {
-            $this->load->view('dialogSinArticulos', $data);
+            $this->load->view('movil/dialogSinArticulos', $data);
         } else {
             $data['titulo'] = 'Orden';
             $data['orden'] = $ordenActual;

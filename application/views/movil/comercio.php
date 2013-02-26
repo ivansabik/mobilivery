@@ -10,7 +10,8 @@ include 'header-titulotexto.php';
                 errorGeolocalizacion();
             }
             function exitoCoordenadas(location) {
-                window.location = '<?php site_url('movil/infoComercio/direcciones/'.location.coords.latitude.'/'.location.coords.longitude); ?>';
+                var site_url = '<?php echo site_url('movil/infoComercio/direcciones'); ?>';
+                window.location = site_url+'/'+location.coords.latitude+'/'+location.coords.longitude;
             }
             function errorCoordenadas() {
                 $("#divDirecciones").html('<h4>No se pudo acceder a tu ubicación, debes dar permiso para acceder a ella en tu navegador.</h4>');
@@ -38,5 +39,6 @@ include 'header-titulotexto.php';
     <div id="divDirecciones"></div>
 </div>
 <?php
+include 'powered.php';
 include 'footer.php';
 ?>

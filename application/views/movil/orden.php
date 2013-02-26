@@ -14,5 +14,6 @@ echo '<h3>TOTAL: $' . $orden->getTotal() . '</h3>';
 </div>	
 <a href="#" data-role="button" data-icon="check" >Ordenar</a>
 <?php
+include 'powered.php';
 include 'footer.php';
 ?>

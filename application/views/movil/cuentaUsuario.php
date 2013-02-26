@@ -6,9 +6,9 @@ include 'header-titulotexto.php';
 if (!$cliente->isLogged()) {
     $cliente->nombre = "";
     echo '<div class="tituloCentrado">
-        <a href="' . site_url("auth/login/Facebook") . '" data-ajax="false" class="zocial facebook" data-role="none">Entrar con Facebook</a></br>
-        <a href="' . site_url("auth/login/Twitter") . '" data-ajax="false" class="zocial twitter" data-role="none">Entrar con Twitter</a></br>
-        <a href="' . site_url("auth/login/Google") . '" data-ajax="false" class="zocial google" data-role="none">Entrar con Google</a>
+        <a href="' . site_url("movil/auth/login/Facebook") . '" data-ajax="false" class="zocial facebook" data-role="none">Entrar con Facebook</a></br>
+        <a href="' . site_url("movil/auth/login/Twitter") . '" data-ajax="false" class="zocial twitter" data-role="none">Entrar con Twitter</a></br>
+        <a href="' . site_url("movil/auth/login/Google") . '" data-ajax="false" class="zocial google" data-role="none">Entrar con Google</a>
         </div>';
 }
 ?>
@@ -23,10 +23,10 @@ if (!$cliente->isLogged()) {
 </div>
 <div data-role="fieldcontain">
     <p class="elementosLabel">Dirección:
-        <a href="<?php echo site_url('usuario/ubicacion/get'); ?>" data-role="button" data-ajax="false">Ubicación actual</a>
+        <a href="<?php echo site_url('movil/usuario/ubicacion/get'); ?>" data-role="button" data-ajax="false">Ubicación actual</a>
         <input name="direccion" type="text" id="inputBusquedaDir"/>
-        <?php echo $map['html']; ?>
     </p>
+    <?php echo $map['html']; ?>
     <p class="elementosLabel">Calle: 
         <input id="calle" name="calle" type="text" />
     </p>
@@ -58,5 +58,6 @@ if (!$cliente->isLogged()) {
     ?>
 </div>
 <?php
+include 'powered.php';
 include 'footer.php';
 ?>

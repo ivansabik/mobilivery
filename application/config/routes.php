@@ -38,9 +38,10 @@
 |
 */
 
-$route['default_controller'] = "movil/MenuEntrada";
+$route['default_controller'] = "appHandler";
 $route['404_override'] = '';
-
+$route['movil'] = 'movil/principalMovil';
+$route['cms'] = 'cms/principalCMS';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

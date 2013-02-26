@@ -1,6 +1,6 @@
 <?php
 
-class MenuEntrada extends CI_Controller {
+class PrincipalMovil extends CI_Controller {
 
 // Muestra el menu del restaurante
     public function index() {

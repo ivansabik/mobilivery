@@ -16,7 +16,7 @@
                     errorGeolocalizacion();
                 }
                 function exitoCoordenadas(location) {
-                    $.post('<?php echo site_url('usuario/ubicacion/set'); ?>', { latitud: location.coords.latitude, longitud: location.coords.longitude }, function(data) {
+                    $.post('<?php echo site_url('movil/usuario/ubicacion/set'); ?>', { latitud: location.coords.latitude, longitud: location.coords.longitude }, function(data) {
                         $("#contenido").html('<h4>Listo, revisa que la ubicación en el mapa sea correcta. Si no está bien puedes arrastrar el ícono para cambiarla.</h4><a href="#" data-role="button" data-rel="back">Regresar</a>').trigger("create");
                     });
                 }

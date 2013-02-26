@@ -6,10 +6,10 @@ class InfoComercio extends CI_Controller {
         $this->load->model('Comercio');
         $this->Comercio->load();
         $data['comercio'] = $this->Comercio;
-        $data['titulo'] = $this->Comercio->nombre;
+        $data['titulo'] = 'Nosotros';
         $this->load->library('googlemaps');
         $config['center'] = $this->Comercio->latitud . ',' . $this->Comercio->longitud;
-        $config['zoom'] = '14';
+        $config['zoom'] = '13';
         $config['map_height'] = '300px';
         $this->googlemaps->initialize($config);
         $marker = array();
@@ -23,14 +23,11 @@ class InfoComercio extends CI_Controller {
         $this->load->view('movil/comercio', $data);
     }
     
-    public function direcciones() {
-        $params = $this->input->post();
-        $latitud = (float)$params['latitud'];
-        $longitud = (float)$params['longitud'];
+    public function direcciones($latitud, $longitud) {
         $this->load->model('Comercio');
         $this->Comercio->load();
         $data['comercio'] = $this->Comercio;
-        $data['titulo'] = $this->Comercio->nombre;
+        $data['titulo'] = 'Nosotros';
         $this->load->library('googlemaps');
         $config['center'] = $this->Comercio->latitud . ',' . $this->Comercio->longitud;
         $config['zoom'] = '14';
