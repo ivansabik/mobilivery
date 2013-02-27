@@ -51,11 +51,8 @@ padding-left: 34px;
 background: url("../imgs/google.png") no-repeat scroll 0 0 transparent;
 }
 
-.eliminar {
-height: 25px;
-width: 25px;
-background: url("../imgs/eliminar.png");
-float: left;
+img.eliminar {
+    float: left;
 }
 
 .zocial {

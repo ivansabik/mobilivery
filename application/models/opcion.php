@@ -11,8 +11,8 @@ class Opcion extends CI_Model {
 
     function load($id) {
         $query = $this->db->get_where('opcion', array('id =' => $id));
-        $resultados = $query->result();
-        $resultados = $resultados[0];
+        $resultadosBd = $query->result();
+        $resultados = $resultadosBd[0];
         $this->id = $resultados->id;
         $this->nombre = $resultados->nombre;
         $this->precio = $resultados->precio;

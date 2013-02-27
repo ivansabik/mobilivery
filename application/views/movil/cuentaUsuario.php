@@ -41,7 +41,7 @@ if (!$cliente->isLogged()) {
     </p>
     <p class="elementosLabel">Interior: 
         <input id="numInt" name="numInt" type="text" />
-        <a href="#" data-role="button" data-icon="check" >Guardar</a>
+        <a href="#" data-role="button" data-icon="check" data-iconpos="right">Guardar</a>
 </div>
 <div>
     <?php
@@ -58,6 +58,5 @@ if (!$cliente->isLogged()) {
     ?>
 </div>
 <?php
-include 'powered.php';
 include 'footer.php';
 ?>

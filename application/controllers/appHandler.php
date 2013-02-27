@@ -6,7 +6,7 @@ if (!defined('BASEPATH'))
 class AppHandler extends CI_Controller {
 
     public function index() {
-        redirect('/movil');
+        redirect('movil/');
     }
 
 }

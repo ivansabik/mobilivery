@@ -17,7 +17,7 @@
             <div data-role="content" data-theme="<?php echo $comercio->temaPage; ?>">
                 <h3>El artículo fue agregado a su orden</h3>
                 <a href="<?php echo site_url('movil/actual/ver');?>" data-role="button">Ver mi orden</a>
-                <a href="#" data-role="button" data-rel="back">Ir a categorías</a>
+                <a href="javascript:history.go(-2)" data-role="button">Ir a categorías</a>
             </div>
         </div>
     </body>
