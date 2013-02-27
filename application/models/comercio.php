@@ -7,7 +7,6 @@ class Comercio extends CI_Model {
     function __construct() {
         parent::__construct();
         $this->categorias = array();
-        
     }
 
     function load() {
@@ -29,6 +28,21 @@ class Comercio extends CI_Model {
         $this->temaFooter = $resultadosComercio->temaFooter;
         $this->foto = $resultadosComercio->foto;
         $this->info = $resultadosComercio->info;
+        // Construye horarios
+        $this->db->order_by('diaSemana');
+        $query = $this->db->get('horarios');
+        $resultados = $query->result();
+        $arrHorarios = array();
+        $keyDia = '';
+        foreach ($resultados as $resultado) {
+            if ($resultado->dia != $keyDia) {
+                $arrHorarios[$resultado->dia] = array($resultado->horario);
+                $keyDia = $resultado->dia;
+            } else {
+                $arrHorarios[$resultado->dia][] = $resultado->horario;
+            }
+        }
+        $this->horarios = $arrHorarios;
         $query = $this->db->get('categoria');
         $resultadosCategorias = $query->result();
         foreach ($resultadosCategorias as $resultadosCategoria) {
@@ -38,6 +52,17 @@ class Comercio extends CI_Model {
             $categoria->nombre = $resultadosCategoria->nombre;
             $this->categorias[] = $categoria;
         }
+    }
+
+    function toHtmlHorarios() {
+        $strHtml = '<ul data-role="listview">';
+        foreach ($this->horarios as $key => $value) {
+            $strHtml.= '<li><span>' . $key . '  </span><span class="nobold">';
+            $strHtml.= implode(',', $this->horarios[$key]);
+            $strHtml.= '</span></li>';
+        }
+        $strHtml.='</ul>';
+        return $strHtml;
     }
 
 }

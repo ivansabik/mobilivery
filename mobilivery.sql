@@ -3,12 +3,17 @@
 -- Server version:               5.5.27 - MySQL Community Server (GPL)
 -- Server OS:                    Win32
 -- HeidiSQL version:             7.0.0.4053
--- Date/time:                    2013-02-25 00:49:45
+-- Date/time:                    2013-02-27 02:36:48
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8 */;
 /*!40014 SET FOREIGN_KEY_CHECKS=0 */;
+
+-- Dumping database structure for mobilivery
+CREATE DATABASE IF NOT EXISTS `mobilivery` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `mobilivery`;
+
 
 -- Dumping structure for table mobilivery.articulo_caracteristica
 CREATE TABLE IF NOT EXISTS `articulo_caracteristica` (
@@ -18,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `articulo_caracteristica` (
   `id_caracteristica` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table mobilivery.articulo_caracteristica: ~4 rows (approximately)
+-- Dumping data for table mobilivery.articulo_caracteristica: ~19 rows (approximately)
 /*!40000 ALTER TABLE `articulo_caracteristica` DISABLE KEYS */;
 INSERT INTO `articulo_caracteristica` (`id`, `id_articulo_menu`, `id_articulo_orden`, `id_caracteristica`) VALUES
 	(1, 1, NULL, 1),
@@ -100,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `caracteristica` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table mobilivery.caracteristica: ~4 rows (approximately)
+-- Dumping data for table mobilivery.caracteristica: ~9 rows (approximately)
 /*!40000 ALTER TABLE `caracteristica` DISABLE KEYS */;
 INSERT INTO `caracteristica` (`id`, `nombre`, `valor_unico`) VALUES
 	(1, 'Extras boneless', NULL),
@@ -155,8 +160,29 @@ CREATE TABLE IF NOT EXISTS `comercio` (
 -- Dumping data for table mobilivery.comercio: ~1 rows (approximately)
 /*!40000 ALTER TABLE `comercio` DISABLE KEYS */;
 INSERT INTO `comercio` (`id`, `nombre`, `logo`, `latitud`, `longitud`, `radioCobertura`, `horarios`, `telefono`, `moneda`, `temaHeader`, `temaPage`, `temaFooter`, `foto`, `info`) VALUES
-	(1, 'Chori\'s', 'imgs/logo.png', 19.371235, -99.257698, 2500, '10:00-22:00', '5536744626', 'MXN', 'c', 'b', 'c', 'imgs/choris.jpg', 'Desde 1998 ofreciendo las delicias más carstensosas. Atendido personalmente por su servidor y amigo el Chori.');
+	(1, 'Chori\'s', 'logo.png', 19.371235, -99.257698, 2500, '10:00-22:00', '5536744626', 'MXN', 'c', 'c', 'c', 'imgs/choris.jpg', 'Desde 1998 ofreciendo las delicias más carstensosas. Atendido personalmente por su servidor y amigo el Chori.');
 /*!40000 ALTER TABLE `comercio` ENABLE KEYS */;
+
+
+-- Dumping structure for table mobilivery.horarios
+CREATE TABLE IF NOT EXISTS `horarios` (
+  `dia` varchar(3) DEFAULT NULL,
+  `diaSemana` int(1) DEFAULT NULL,
+  `horario` varchar(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table mobilivery.horarios: ~8 rows (approximately)
+/*!40000 ALTER TABLE `horarios` DISABLE KEYS */;
+INSERT INTO `horarios` (`dia`, `diaSemana`, `horario`) VALUES
+	('lu', 1, '11:00-20:30'),
+	('ma', 2, '7:00-11:00'),
+	('ma', 2, '13:00-20:30'),
+	('mi', 3, '11:00-20:30'),
+	('ju', 4, '11:00-20:30'),
+	('vi', 5, '11:00-20:30'),
+	('sa', 6, '11:00-20:30'),
+	('do', 7, '11:00-20:30');
+/*!40000 ALTER TABLE `horarios` ENABLE KEYS */;
 
 
 -- Dumping structure for table mobilivery.opcion
@@ -167,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `opcion` (
   `precio` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table mobilivery.opcion: ~9 rows (approximately)
+-- Dumping data for table mobilivery.opcion: ~25 rows (approximately)
 /*!40000 ALTER TABLE `opcion` DISABLE KEYS */;
 INSERT INTO `opcion` (`id`, `id_caracteristica`, `nombre`, `precio`) VALUES
 	(1, 1, 'Salsa blue cheese', 10),

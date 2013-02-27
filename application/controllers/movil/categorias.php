@@ -10,7 +10,7 @@ class Categorias extends CI_Controller {
         echo 'Hello World!';
     }
 
-    public function ver($id) {
+    public function ver($id, $strCategoria = '') {
         $this->load->model('Comercio');
         $this->Comercio->load();
         $data['comercio'] = $this->Comercio;
@@ -18,6 +18,10 @@ class Categorias extends CI_Controller {
         $this->Categoria->load($id);
         $data['categoria'] = $this->Categoria;
         $data['titulo'] = $this->Categoria->nombre;
+        if (!$strCategoria) {
+            $strCategoria = url_title($this->Categoria->nombre, '-', TRUE);
+            redirect('movil/categorias/ver/'.$id.'/'.$strCategoria);
+        }
         $this->load->view('movil/categoria', $data);
     }
 

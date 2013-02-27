@@ -7,7 +7,7 @@ include 'header-titulotexto.php';
         <?php
         foreach ($categoria->articulos as $articuloMenu) {
             echo '<li>';
-            echo '<a href="' . site_url('movil/articulos/ver/' . $articuloMenu->id) . '" data-ajax="false">';
+            echo '<a href="' . site_url('movil/articulos/ver/' . $articuloMenu->id) . '/'.url_title($articuloMenu->nombre, '-', TRUE).'" data-ajax="false">';
             echo '<img src="' . base_url($articuloMenu->foto) . '"/>';
             echo $articuloMenu->nombre;
             echo '<p><p/><p>$ ' . $articuloMenu->precio . '</p>';

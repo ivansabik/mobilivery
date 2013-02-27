@@ -29,8 +29,10 @@ include 'header-titulotexto.php';
     <ul data-role="listview" data-inset="true">
         <li><?php echo $comercio->info; ?></li>
     </ul>
-    <h3>Horarios</h4>
-    <h4><?php echo $comercio->horarios; ?></h4>
+    <div data-role="collapsible" data-content-theme="<?php echo $comercio->temaPage; ?>">
+    <h3>Horarios</h3>
+    <?php echo $comercio->toHtmlHorarios(); ?>
+    </div>
     <h3>Teléfono</h4>
     <h4><a href="tel:<?php echo $comercio->telefono; ?>"><?php echo $comercio->telefono; ?></a></h4>
     <h3>Ubicación y área de entrega</h3>

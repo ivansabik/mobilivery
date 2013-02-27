@@ -10,7 +10,7 @@ class Articulos extends CI_Controller {
         echo 'Hello World!';
     }
 
-    public function ver($id) {
+    public function ver($id, $strArticulo = '') {
         $this->load->model('ArticuloMenu');
         $this->ArticuloMenu->load($id);
         $data['titulo'] = $this->ArticuloMenu->nombreCategoria;
@@ -18,6 +18,10 @@ class Articulos extends CI_Controller {
         $this->load->model('Comercio');
         $this->Comercio->load();
         $data['comercio'] = $this->Comercio;
+        if (!$strArticulo) {
+            $strArticulo = url_title($this->ArticuloMenu->nombre,'-', TRUE);
+            redirect('movil/articulos/ver/'.$id.'/'.$strArticulo);
+        }
         $this->load->view('movil/articulo', $data);
     }
 
