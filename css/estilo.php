@@ -70,7 +70,7 @@ a img {
     width: auto\9; /* ie8 */
 }
 
-.powered {
+.powered, select {
     font-size: 9px;
     text-align: center;
 }

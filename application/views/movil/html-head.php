@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title><?php echo $comercio->nombre; ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="<?php echo base_url('css/estilo.php'); ?>" />

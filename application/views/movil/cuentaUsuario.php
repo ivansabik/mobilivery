@@ -17,6 +17,9 @@ if (!$cliente->isLogged()) {
     <p class="elementosLabel">Nombre: 
         <input id="nombre" name="nombre" type="text" value="<?php echo $cliente->nombre; ?>"/>
     </p>
+    <p class="elementosLabel">Correo electrónico: 
+        <input id="nombre" name="nombre" type="text" value="<?php echo $cliente->nombre; ?>"/>
+    </p>
     <p class="elementosLabel">Teléfono: 
         <input id="telefono" name="nombre" type="text" value="<?php echo $cliente->telefono; ?>"/>
     </p>

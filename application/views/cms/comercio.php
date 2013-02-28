@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>Untitled Document</title>
+        <title><?php echo $comercio->nombre; ?> Mobilivery CMS</title>
         <link href="twoColElsLt.css" rel="stylesheet" type="text/css"><!--[if IE]>
         <style type="text/css"> 
         /* place css fixes for all versions of IE in this conditional comment */
@@ -28,20 +28,61 @@
                 <div id="contenido">
                     <label for="nombre">Nombre:</label>
                     <input id="nombre" value="<?php echo $comercio->nombre; ?>"/></br>
-                    <label for="">Logo:</label></br>
-                    <img src="<?php echo base_url('imgs/'.$comercio->logo); ?>" /></br>
-                    <button id="">Cargar imagen</button></br>
-                    <label for="">Radio de cobertura:</label>
-                    <input id="" value="<?php echo $comercio->radioCobertura; ?>"/></br>
-                    <label for="">Teléfono:</label>
-                    <input id="" value="<?php echo $comercio->telefono; ?>"/></br>
-                    <label for="">Horarios:</label>
-                    <input id="" /></br>
-                    <label for="">Foto:</label></br>
+                    <p>Logo:</p>
+                    <img src="<?php echo base_url('imgs/' . $comercio->logo); ?>" /></br>
+                    <button class="button orange">Cargar imagen</button></br>
+                    <p>Radio de cobertura (mts.):
+                    <input id="" value="<?php echo $comercio->radioCobertura; ?>"/></p>
+                    <p>Teléfono:
+                    <input id="" value="<?php echo $comercio->telefono; ?>"/></p>
+                    <p>Horarios:</p>
+                    <div id="agregarHorario">
+                        <div>Día: 
+                            <select name="dia">
+                                <option value="1">Lunes</option>
+                                <option value="2">Martes</option>
+                                <option value="3">Miércoles</option>
+                                <option value="4">Jueves</option>
+                                <option value="5">Viernes</option>
+                                <option value="6">Sábado</option>
+                                <option value="7">Domingo</option>
+                            </select>
+                            </br>
+                            <span>Apertura: </span>
+                            <select name="hApertura">
+                                <?php
+                                for ($hora = 0; $hora <= 23; $hora++)
+                                    echo '<option value="' . $hora . '">' . $hora . '</option>';
+                                ?>
+                            </select>
+                            <span> : </span>
+                            <select name="mApertura">
+                                <option value="00">00</option>
+                                <option value="30">30</option>
+                            </select>
+                            </br>
+                            <span>Cierre: </span>
+                            <select name="hCierre">
+                                <?php
+                                for ($hora = 0; $hora <= 23; $hora++)
+                                    echo '<option value="' . $hora . '">' . $hora . '</option>';
+                                ?>
+                            </select>
+                            <span> : </span>
+                            <select name="mCierre">
+                                <option value="00">00</option>
+                                <option value="30">30</option>
+                            </select>
+                        </div>
+                        <button class="button orange">Agregar</button>
+                        <p>Lunes: <a href="<?php echo site_url('cms'); ?>"><img src="<?php echo base_url('imgs/eliminar.png'); ?>" width="24" height="24" alt="Eliminar" class="eliminar" /></a><input value="" disabled="disabled"></p>
+                        <p>Lunes: <a href="<?php echo site_url('cms'); ?>"><img src="<?php echo base_url('imgs/eliminar.png'); ?>" width="24" height="24" alt="Eliminar" class="eliminar" /></a><input value="" disabled="disabled"></p>
+                    </div>
+                    <p>Foto:</p>
                     <img src="<?php echo base_url($comercio->foto); ?>" /></br>
-                    <button id="">Cargar imagen</button></br>
-                    <label for="">Información de minisitio:</label></br>
-                    <textarea id=""><?php echo $comercio->info; ?></textarea>
+                    <button class="button orange">Cargar imagen</button></br>
+                    <p>Información de minisitio:</p>
+                    <textarea id="" rows="10" cols="45"><?php echo $comercio->info; ?></textarea>
                     <h3>Estilo de sitio móvil</h3>
                     <label for="">Tema de header:</label>
                     <input id="" value="<?php echo $comercio->temaHeader; ?>"/></br>

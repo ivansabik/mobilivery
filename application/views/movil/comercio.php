@@ -10,7 +10,7 @@ include 'header-titulotexto.php';
                 errorGeolocalizacion();
             }
             function exitoCoordenadas(location) {
-                var site_url = '<?php echo site_url('movil/infoComercio/direcciones'); ?>';
+                var site_url = '<?php echo site_url('movil/info-comercio/direcciones'); ?>';
                 window.location = site_url+'/'+location.coords.latitude+'/'+location.coords.longitude;
             }
             function errorCoordenadas() {
