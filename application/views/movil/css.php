@@ -1,16 +1,23 @@
 <?php
-include '../config_mobilivery.php';
 // Falta transparencia de imagen de fondo
 // Falta implementar font family en todo
 header("Content-type: text/css; charset: UTF-8");
-if (IMG_FONDO != "")
-    echo
-    '.ui-page {
-background-image: url("' . IMG_FONDO . '");
-background-attachment:fixed;
-background-repeat: no-repeat;
-background-size:cover;  
-}';
+if ($comercio->fondo != '') {
+    echo '
+    .ui-page.ui-body-' . $comercio->temaPage . ' {
+        background-image: url("' . base_url('imgs/' . $comercio->fondo) . '");
+        background-attachment:fixed;
+        background-repeat: no-repeat;
+        background-size:cover;  
+    }
+    .ui-content.ui-body-' . $comercio->temaPage . ' {
+        background-image: url("' . base_url('imgs/' . $comercio->fondo) . '");
+        background-attachment:fixed;
+        background-repeat: no-repeat;
+        background-size:cover;  
+    }
+    ';
+}
 ?>
 .nombre-categoria {
 text-align: center;
@@ -52,7 +59,7 @@ background: url("../imgs/google.png") no-repeat scroll 0 0 transparent;
 }
 
 img.eliminar {
-    float: left;
+float: left;
 }
 
 .zocial {
@@ -65,12 +72,12 @@ font-weight:normal;
 }
 
 a img {
-    max-width: 95%;
-    height: auto;
-    width: auto\9; /* ie8 */
+max-width: 95%;
+height: auto;
+width: auto\9; /* ie8 */
 }
 
 .powered, select {
-    font-size: 9px;
-    text-align: center;
+font-size: 9px;
+text-align: center;
 }

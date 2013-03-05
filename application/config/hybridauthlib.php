@@ -15,7 +15,7 @@ if (!defined('BASEPATH'))
 $config =
         array(
             // set on "base_url" the relative url that point to HybridAuth Endpoint
-            'base_url' => 'movil/auth/endpoint',
+            "base_url" => "movil/auth/endpoint",
             "providers" => array(
                 "Facebook" => array(
                     "enabled" => true,

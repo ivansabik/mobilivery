@@ -101,7 +101,7 @@ img.eliminar {
     float: left;
 }
 
-#agregarHorario {
+.cuadroContenido {
     padding: 10px;
     border-width: 1px;
     border-style: solid;
@@ -121,4 +121,8 @@ input {
 select, textarea {
     font-size: 16px;
     font-family: Georgia, Times, "Times New Roman", serif;
+}
+
+.negritas {
+    font-weight: bold;
 }

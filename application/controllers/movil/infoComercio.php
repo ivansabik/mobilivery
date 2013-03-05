@@ -22,7 +22,7 @@ class InfoComercio extends CI_Controller {
         $data['map'] = $this->googlemaps->create_map();
         $this->load->view('movil/comercio', $data);
     }
-    
+
     public function direcciones($latitud, $longitud) {
         $this->load->model('Comercio');
         $this->Comercio->load();
@@ -36,6 +36,10 @@ class InfoComercio extends CI_Controller {
         $config['directionsStart'] = $latitud . ',' . $longitud;
         $config['directionsEnd'] = $this->Comercio->latitud . ',' . $this->Comercio->longitud;
         $config['directionsDivID'] = 'divDirecciones';
+        $config['afterDirectionsLoad'] = "
+            $('html, body').animate({
+                scrollTop: $('#divDirecciones').offset().top
+            });";
         $this->googlemaps->initialize($config);
         $marker = array();
         $marker['position'] = $config['center'];

@@ -4,7 +4,7 @@
         <title></title>
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="<?php echo base_url('css/estilo.php'); ?>" />
+        <link rel="stylesheet" href="<?php echo base_url('movil/css'); ?>" />
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
         <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
@@ -28,13 +28,17 @@
         </script>
     </head>
     <body>
-        <div data-role="page" id="pagArticulo">
+        <div data-role="page" id="pagArticulo" data-theme="<?php echo $comercio->temaPage; ?>">
             <?php
             include 'header-titulotexto.php';
             ?>
             <div class="tituloCentrado">
                 <h2><?php echo $articuloMenu->nombre; ?></h2>
-                <img src="<?php echo base_url($articuloMenu->foto); ?>" />
+                <?php
+                if ($articuloMenu->foto != '') {
+                    echo '<img src="' . base_url($articuloMenu->foto) . '" />';
+                }
+                ?>
             </div>
             <!--<h4>Descripción</h4>-->
             <ul data-role="listview" data-inset="true">

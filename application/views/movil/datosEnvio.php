@@ -18,7 +18,7 @@ if (!$cliente->isLogged()) {
         <input id="nombre" name="nombre" type="text" value="<?php echo $cliente->nombre; ?>"/>
     </p>
     <p class="elementosLabel">Correo electrónico: 
-        <input id="nombre" name="nombre" type="text" value="<?php echo $cliente->nombre; ?>"/>
+        <input id="nombre" name="nombre" type="text" value="<?php echo $cliente->mail; ?>"/>
     </p>
     <p class="elementosLabel">Teléfono: 
         <input id="telefono" name="nombre" type="text" value="<?php echo $cliente->telefono; ?>"/>
@@ -26,7 +26,7 @@ if (!$cliente->isLogged()) {
 </div>
 <div data-role="fieldcontain">
     <p class="elementosLabel">Dirección:
-        <a href="<?php echo site_url('movil/usuario/ubicacion/get'); ?>" data-role="button" data-ajax="false">Ubicación actual</a>
+        <a href="<?php echo site_url('movil/datos-envio/ubicacion/get'); ?>" data-role="button" data-ajax="false">Ubicación actual</a>
         <input name="direccion" type="text" id="inputBusquedaDir"/>
     </p>
     <?php echo $map['html']; ?>

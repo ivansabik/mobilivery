@@ -67,7 +67,7 @@ class Auth extends CI_Controller {
                     $this->load->model('Comercio');
                     $this->Comercio->load();
                     $data['comercio'] = $this->Comercio;
-                    $this->load->view('movil/cuentaUsuario', $data);
+                    $this->load->view('movil/datos-envio/ver', $data);
                     ///
                 } else { // Cannot authenticate user
                     show_error('Cannot authenticate user');

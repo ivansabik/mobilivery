@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Usuario extends CI_Controller {
+class DatosEnvio extends CI_Controller {
 
     public function ver() {
         $clienteActual = $this->nativesession->get('cliente');
@@ -45,7 +45,7 @@ class Usuario extends CI_Controller {
         $this->load->model('Comercio');
         $this->Comercio->load();
         $data['comercio'] = $this->Comercio;
-        $this->load->view('movil/cuentaUsuario', $data);
+        $this->load->view('movil/datosEnvio', $data);
     }
 
     public function ubicacion($param) {

@@ -145,7 +145,8 @@ class Googlemaps {
 	var $placesAutocompleteBoundNE	= '';						// Both South-West (lat/long co-ordinate or address) and North-East (lat/long co-ordinate or address) values are required if wishing to set bounds
 	var $placesAutocompleteBoundsMap= FALSE;					// An alternative to setting the SW and NE bounds is to use the bounds of the current viewport. If set to TRUE, the bounds will be set to the viewport of the visible map, even if dragged or zoomed
 	var $placesAutocompleteOnChange	= '';						// The JavaScript action to perform when a place is selected
-	
+	var $afterDirectionsLoad = '';
+        
 	function Googlemaps($config = array())
 	{
 		if (count($config) > 0)
@@ -1937,6 +1938,8 @@ class Googlemaps {
 			  	directionsService.route(request, function(response, status) {
 			    	if (status == google.maps.DirectionsStatus.OK) {
 			      		directionsDisplay.setDirections(response);
+                                        '.$this->afterDirectionsLoad.'
+                                        
 			    	}else{
 			    		switch (status) { 	
 			    			case "NOT_FOUND": { alert("Either the start location or destination were not recognised"); break }

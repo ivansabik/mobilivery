@@ -1,6 +1,6 @@
 <?php
 
-class EditarComercio extends CI_Controller {
+class EstiloMovil extends CI_Controller {
 
     public function index() {
         $this->load->model('Comercio');
@@ -14,12 +14,8 @@ class EditarComercio extends CI_Controller {
         $marker = array();
         $marker['position'] = $config['center'];
         $marker['draggable'] = TRUE;
-        $marker['ondragend'] = '
-            latitud = event.latLng.lat();
-            longitud = event.latLng.lng();
-            ';
-
         $this->googlemaps->add_marker($marker);
+        
         $circle = array();
         $circle['center'] = $this->Comercio->latitud . ',' . $this->Comercio->longitud;
         $circle['radius'] = $this->Comercio->radioCobertura;
@@ -27,21 +23,7 @@ class EditarComercio extends CI_Controller {
         
         $data['map'] = $this->googlemaps->create_map();
         
-        $this->load->view('cms/comercio', $data);
-    }
-    
-    public function actualizar() {
-        $params = $this->input->post();
-        $this->load->model('Comercio');
-        $this->Comercio->load();
-        $this->Comercio->nombre = $params['nombre'];
-        $this->Comercio->telefono = $params['telefono'];
-        $this->Comercio->descripcion = $params['descripcion'];
-        $this->Comercio->radioCobertura = $params['radioCobertura'];
-        $this->Comercio->latitud = $params['latitud'];
-        $this->Comercio->longitud = $params['longitud'];
-        $this->Comercio->save();
-        redirect('cms/editarComercio');
+        $this->load->view('cms/estiloMovil', $data);
     }
 
 }
