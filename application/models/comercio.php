@@ -30,26 +30,17 @@ class Comercio extends CI_Model {
         $this->fotosCategorias = $resultadosComercio->fotosCategorias;
         $this->fondo = $resultadosComercio->fondo;
         // Construye horarios
-        $this->db->order_by('diaSemana');
-        $query = $this->db->get('horarios');
+        $this->db->order_by('dia');
+        $query = $this->db->get('horario');
         $resultados = $query->result();
-//        echo '<pre>';
-//        var_dump($resultados);
-//        echo '</pre>';
-//        echo para();
         $keyDia = '';
         $arrHorarios = array();
         foreach ($resultados as $resultado) {
-            if ($resultado->diaSemana != $keyDia) {
-                $arrHorarios[] = array(
-                    'dia' => $resultado->dia,
-                    'diaSemana' => $resultado->diaSemana,
-                    'textoDia' => $resultado->textoDia,
-                    'horarios' => array($resultado->horario)
-                );
-                $keyDia = $resultado->diaSemana;
+            if ($resultado->dia != $keyDia) {
+                $arrHorarios[] = new HorarioDia($resultado->dia, array($resultado->horario));
+                $keyDia = $resultado->dia;
             } else {
-                $arrHorarios[count($arrHorarios) - 1]['horarios'][] = $resultado->horario;
+                $arrHorarios[count($arrHorarios) - 1]->horarios[] = $resultado->horario;
             }
         }
         $this->horarios = $arrHorarios;
@@ -84,8 +75,8 @@ class Comercio extends CI_Model {
     function toHtmlHorarios() {
         $strHtml = '<ul data-role="listview">';
         foreach ($this->horarios as $horario) {
-            $strHtml.= '<li><span>' . $horario['textoDia'] . '  </span><span class="nobold">';
-            $strHtml.= implode(',', $horario['horarios']);
+            $strHtml.= '<li><span>' . $horario->getTextoDia() . '  </span><span class="nobold">';
+            $strHtml.= implode(',', $horario->horarios);
             $strHtml.= '</span></li>';
         }
         $strHtml.='</ul>';

@@ -12,6 +12,7 @@
         </style>
         <![endif]-->
         <link href="<?php echo base_url('css/cms.css'); ?>" rel="stylesheet" type="text/css" />
+        <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
         <script>
             latitud = <?php echo $comercio->latitud; ?>;
             longitud = <?php echo $comercio->longitud; ?>;
@@ -20,6 +21,21 @@
                 document.getElementById('longitud').value = longitud;
                 document.getElementById('infoComercio').submit();
             }
+            
+            function agregarHorario() {
+                // validierung
+                document.getElementById('agregarHorario').submit();
+            }
+            
+            function eliminarHorario(data) {
+                console.log(data.parentNode);
+            }
+            
+            $(document).ready(function() {
+                $(".eliminarHorario").click(function() {
+                    $(this).closest('form')[0].submit();
+                });
+            });
         </script>
         <?php echo $map['js']; ?>
         <meta name="robots" content="noindex">
@@ -50,11 +66,12 @@
                         else
                             echo '<p>No has subido ningún logo</p>';
                         ?>
-                        <a class="button orange">Subir logo</a>
-                        <?php
-                        if ($comercio->logo != '')
-                            echo '<a href="'.site_url('cms/imagenes/logo/eliminar').'" class="button orange">Eliminar</a>';
-                        ?>
+                        <p>
+                            <a class="button orange">Subir logo</a>
+                            <?php
+                            if ($comercio->logo != '')
+                                echo '<a href="' . site_url('cms/imagenes/logo/eliminar') . '" class="button orange">Eliminar</a>';
+                            ?>
                         </p>
                         <p>
                             <span class="negritas">Teléfono: </span>
@@ -68,12 +85,13 @@
                         else
                             echo '<p>No has subido ninguna foto de tu comercio</p>';
                         ?>
-                        <a class="button orange">Subir foto</a>
-                        <?php
-                        if ($comercio->foto != '') {
-                            echo '<a href="'.site_url('cms/imagenes/foto/eliminar').'" class="button orange">Eliminar</a>';
-                        }
-                        ?>
+                        <p>
+                            <a class="button orange">Subir foto</a>
+                            <?php
+                            if ($comercio->foto != '') {
+                                echo '<a href="' . site_url('cms/imagenes/foto/eliminar') . '" class="button orange">Eliminar</a>';
+                            }
+                            ?>
                         </p>
                         <p>
                             <span class="negritas">Descripción del comercio: </span>
@@ -86,8 +104,8 @@
                         <input id="latitud" name="latitud" type="hidden" value=""/>
                         <input id="longitud" name="longitud" type="hidden" value=""/>
                     </form>
-                    <form id="agregarHorario" method="POST" action="<?php echo site_url('cms/editarComercio/agregarHorario'); ?>">
-                        <div class="cuadroContenido">
+                    <div class="cuadroContenido" id="horarios">
+                        <form id="agregarHorario" method="POST" action="<?php echo site_url('cms/editarComercio/agregarHorario'); ?>">
                             <p class="negritas">Horarios:</p>
                             <div>Día: 
                                 <select name="dia">
@@ -126,16 +144,20 @@
                                     <option value="30">30</option>
                                 </select>
                             </div>
-                            <a class="button orange">Agregar</a>
-                            <?php
-                            foreach ($comercio->horarios as $horarios) {
-                                foreach ($horarios['horarios'] as $horario) {
-                                    echo '<p>' . $horarios['textoDia'] . ': <a href="' . site_url('cms') . '"><img src="' . base_url('imgs/eliminar.png') . '" width="24" height="24" alt="Eliminar" class="eliminar" /></a><input disabled="disabled" value="' . $horario . '"></p>';
-                                }
+                            <p><a href="#" class="button orange" type="submit" onclick="agregarHorario();">Agregar</a></p>
+                        </form>
+                        <?php
+                        foreach ($comercio->horarios as $horarioDia) {
+                            foreach ($horarioDia->horarios as $horario) {
+                                echo '<form action="' . site_url('cms/editarComercio/eliminarHorario') . '" method="POST">';
+                                echo '<p>' . $horarioDia->getTextoDia() . ': <a href="#" class="eliminarHorario"><img src="' . base_url('imgs/eliminar.png') . '" width="24" height="24" alt="Eliminar" class="eliminar" /></a><input disabled="disabled" value="' . $horario . '"></p>';
+                                echo '<input name="dia" type="hidden" value="' . $horarioDia->dia . '" />';
+                                echo '<input name="horario" type="hidden" value="' . urlencode($horario) . '" />';
+                                echo '</form>';
                             }
-                            ?>
-                        </div>
-                    </form>
+                        }
+                        ?>
+                    </div>
                     <p class="negritas">Ubicación</p>
                     <?php echo $map['html']; ?>
                     <p>

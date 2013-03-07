@@ -3,7 +3,7 @@
 -- Server version:               5.5.27 - MySQL Community Server (GPL)
 -- Server OS:                    Win32
 -- HeidiSQL version:             7.0.0.4053
--- Date/time:                    2013-02-27 02:36:48
+-- Date/time:                    2013-03-06 23:14:50
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `articulo_menu` (
 -- Dumping data for table mobilivery.articulo_menu: ~19 rows (approximately)
 /*!40000 ALTER TABLE `articulo_menu` DISABLE KEYS */;
 INSERT INTO `articulo_menu` (`id`, `id_categoria`, `nombre`, `descripcion`, `foto`, `precio`) VALUES
-	(1, 1, 'Boneless wings', '12 bolitas de pollo empanizadas, bañadas en salsa original hot wings y acompañadas de salsa blue cheese.', 'imgs/arts/1.png', 75),
+	(1, 1, 'Boneless wings', '12 bolitas de pollo empanizadas, bañadas en salsa original hot wings y acompañadas de salsa blue cheese.', 'imgs/arts/1.png', 70),
 	(2, 1, 'Nachos', 'Receta de la casa con frijoles, guacamole, pico de gallo y mezcla de quesos.', 'imgs/arts/2.png', 60),
 	(3, 1, 'Papas', 'Papas fritas en aceite de cacahuate y sazonadas con paprika', 'imgs/arts/3.png', 35),
 	(4, 1, 'Guacamole', 'Lo puedes pedir de entrada o para ponérselo a otro de nuestros deliciosos platillos.', 'imgs/arts/4.png', 30),
@@ -78,7 +78,7 @@ INSERT INTO `articulo_menu` (`id`, `id_categoria`, `nombre`, `descripcion`, `fot
 	(15, 4, 'Burrito de carne', 'El original burrito con carne.', 'imgs/arts/15.png', 60),
 	(16, 4, 'Burrito de camarón', 'La versión del pacífico con camarón y salsa especial.', 'imgs/arts/16.png', 80),
 	(17, 4, 'Burrito de huevo', 'Para el desayuno burrito con huevo.', 'imgs/arts/17.png', 50),
-	(18, 5, 'Cheesecake', NULL, NULL, NULL),
+	(18, 5, 'Cheesecake', NULL, NULL, 45),
 	(18, 5, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `articulo_menu` ENABLE KEYS */;
 
@@ -149,40 +149,53 @@ CREATE TABLE IF NOT EXISTS `comercio` (
   `radioCobertura` double DEFAULT NULL,
   `horarios` varchar(100) DEFAULT NULL,
   `telefono` varchar(10) DEFAULT NULL,
-  `moneda` varchar(3) DEFAULT NULL,
   `temaHeader` char(1) DEFAULT NULL,
   `temaPage` char(1) DEFAULT NULL,
   `temaFooter` char(1) DEFAULT NULL,
   `foto` varchar(50) DEFAULT NULL,
-  `info` varchar(300) DEFAULT NULL
+  `descripcion` varchar(300) DEFAULT NULL,
+  `fotosCategorias` int(1) DEFAULT '0',
+  `fondo` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Dumping data for table mobilivery.comercio: ~1 rows (approximately)
 /*!40000 ALTER TABLE `comercio` DISABLE KEYS */;
-INSERT INTO `comercio` (`id`, `nombre`, `logo`, `latitud`, `longitud`, `radioCobertura`, `horarios`, `telefono`, `moneda`, `temaHeader`, `temaPage`, `temaFooter`, `foto`, `info`) VALUES
-	(1, 'Chori\'s', 'logo.png', 19.371235, -99.257698, 2500, '10:00-22:00', '5536744626', 'MXN', 'c', 'c', 'c', 'imgs/choris.jpg', 'Desde 1998 ofreciendo las delicias más carstensosas. Atendido personalmente por su servidor y amigo el Chori.');
+INSERT INTO `comercio` (`id`, `nombre`, `logo`, `latitud`, `longitud`, `radioCobertura`, `horarios`, `telefono`, `temaHeader`, `temaPage`, `temaFooter`, `foto`, `descripcion`, `fotosCategorias`, `fondo`) VALUES
+	(1, 'Chori\'s', 'logo.png', 19.374797718184286, -99.25263398937989, 1500, '10:00-22:00', '5552925474', 'c', 'c', 'c', 'comercio.png', 'Desde 1998 ofreciendo las delicias más carstensosas de la comida de calle internacional. Atendido personalmente por su servidor y amigo el Chori.', 1, '');
 /*!40000 ALTER TABLE `comercio` ENABLE KEYS */;
 
 
--- Dumping structure for table mobilivery.horarios
-CREATE TABLE IF NOT EXISTS `horarios` (
-  `dia` varchar(3) DEFAULT NULL,
-  `diaSemana` int(1) DEFAULT NULL,
+-- Dumping structure for table mobilivery.configuraciones
+CREATE TABLE IF NOT EXISTS `configuraciones` (
+  `temaHeader` char(1) DEFAULT 'c',
+  `temaPage` char(1) DEFAULT 'c',
+  `temaFooter` char(1) DEFAULT 'c',
+  `fotosCategorias` int(1) DEFAULT '0',
+  `imgFondoMovil` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table mobilivery.configuraciones: ~0 rows (approximately)
+/*!40000 ALTER TABLE `configuraciones` DISABLE KEYS */;
+/*!40000 ALTER TABLE `configuraciones` ENABLE KEYS */;
+
+
+-- Dumping structure for table mobilivery.horario
+CREATE TABLE IF NOT EXISTS `horario` (
+  `dia` int(1) DEFAULT NULL,
   `horario` varchar(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table mobilivery.horarios: ~8 rows (approximately)
-/*!40000 ALTER TABLE `horarios` DISABLE KEYS */;
-INSERT INTO `horarios` (`dia`, `diaSemana`, `horario`) VALUES
-	('lu', 1, '11:00-20:30'),
-	('ma', 2, '7:00-11:00'),
-	('ma', 2, '13:00-20:30'),
-	('mi', 3, '11:00-20:30'),
-	('ju', 4, '11:00-20:30'),
-	('vi', 5, '11:00-20:30'),
-	('sa', 6, '11:00-20:30'),
-	('do', 7, '11:00-20:30');
-/*!40000 ALTER TABLE `horarios` ENABLE KEYS */;
+-- Dumping data for table mobilivery.horario: ~7 rows (approximately)
+/*!40000 ALTER TABLE `horario` DISABLE KEYS */;
+INSERT INTO `horario` (`dia`, `horario`) VALUES
+	(3, '11:00-20:30'),
+	(4, '11:00-20:30'),
+	(5, '11:00-20:30'),
+	(6, '11:00-20:30'),
+	(7, '11:00-20:30'),
+	(2, '11:00-20:30'),
+	(1, '11:00-20:30');
+/*!40000 ALTER TABLE `horario` ENABLE KEYS */;
 
 
 -- Dumping structure for table mobilivery.opcion
