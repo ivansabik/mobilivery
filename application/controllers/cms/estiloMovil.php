@@ -6,24 +6,23 @@ class EstiloMovil extends CI_Controller {
         $this->load->model('Comercio');
         $this->Comercio->load();
         $data['comercio'] = $this->Comercio;
-        
-        $this->load->library('googlemaps');
-        $config['center'] = $this->Comercio->latitud.','.$this->Comercio->longitud;
-        $config['zoom'] = '14';
-        $this->googlemaps->initialize($config);
-        $marker = array();
-        $marker['position'] = $config['center'];
-        $marker['draggable'] = TRUE;
-        $this->googlemaps->add_marker($marker);
-        
-        $circle = array();
-        $circle['center'] = $this->Comercio->latitud . ',' . $this->Comercio->longitud;
-        $circle['radius'] = $this->Comercio->radioCobertura;
-        $this->googlemaps->add_circle($circle);
-        
-        $data['map'] = $this->googlemaps->create_map();
-        
         $this->load->view('cms/estiloMovil', $data);
+    }
+    
+    public function actualizar() {
+        $params = $this->input->post();
+        $this->load->model('Comercio');
+        $this->Comercio->load();
+        $this->Comercio->temaHeader = $params['temaHeader'];
+        $this->Comercio->temaPage = $params['temaPage'];
+        $this->Comercio->temaFooter = $params['temaFooter'];
+        $this->Comercio->fotosCategorias = $params['fotosCategorias'];
+        $this->Comercio->save();
+        redirect('cms/estiloMovil');
+    }
+    
+    public function agregarFondo() {
+        
     }
 
 }

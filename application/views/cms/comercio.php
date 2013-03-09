@@ -27,14 +27,18 @@
                 document.getElementById('agregarHorario').submit();
             }
             
-            function eliminarHorario(data) {
-                console.log(data.parentNode);
-            }
-            
             $(document).ready(function() {
                 $(".eliminarHorario").click(function() {
                     $(this).closest('form')[0].submit();
                 });
+                
+                $('#logo').change(function(){ 
+                    console.log('fermeado');
+                    // Cambiar ACTION de #infoComercio
+                    $('#infoComercio').attr('action', '<?php echo site_url('cms/editarComercio/agregarLogo'); ?>');
+                    $('#infoComercio').submit();
+                });
+
             });
         </script>
         <?php echo $map['js']; ?>
@@ -52,7 +56,7 @@
             </div>
             <div id="mainContent">
                 <div id="contenido">
-                    <form id="infoComercio" method="POST" action="<?php echo site_url('cms/editarComercio/actualizar'); ?>">
+                    <form id="infoComercio" method="POST" action="<?php echo site_url('cms/editarComercio/actualizar'); ?>" enctype="multipart/form-data">
                         <h2>Información del comercio</h2>
                         <p>
                             <span class="negritas">Nombre: </span>
@@ -67,7 +71,7 @@
                             echo '<p>No has subido ningún logo</p>';
                         ?>
                         <p>
-                            <a class="button orange">Subir logo</a>
+                            <input type="file" name="logo" id="logo" size="20" class="button orange"/>
                             <?php
                             if ($comercio->logo != '')
                                 echo '<a href="' . site_url('cms/imagenes/logo/eliminar') . '" class="button orange">Eliminar</a>';
@@ -152,7 +156,7 @@
                                 echo '<form action="' . site_url('cms/editarComercio/eliminarHorario') . '" method="POST">';
                                 echo '<p>' . $horarioDia->getTextoDia() . ': <a href="#" class="eliminarHorario"><img src="' . base_url('imgs/eliminar.png') . '" width="24" height="24" alt="Eliminar" class="eliminar" /></a><input disabled="disabled" value="' . $horario . '"></p>';
                                 echo '<input name="dia" type="hidden" value="' . $horarioDia->dia . '" />';
-                                echo '<input name="horario" type="hidden" value="' . urlencode($horario) . '" />';
+                                echo '<input name="horario" type="hidden" value="' . $horario . '" />';
                                 echo '</form>';
                             }
                         }

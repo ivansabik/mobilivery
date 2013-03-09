@@ -41,7 +41,7 @@ class HorarioDia extends CI_Model {
     function delete($dia, $horario) {
         $this->db->where('dia', $dia);
         $this->db->where('horario', $horario);
-        $this->db->delete('horario'); 
+        $this->db->delete('horario');
     }
 
 }

@@ -21,7 +21,6 @@ class Comercio extends CI_Model {
         $this->longitud = $resultadosComercio->longitud;
         $this->radioCobertura = $resultadosComercio->radioCobertura;
         $this->telefono = $resultadosComercio->telefono;
-        $this->horarios = $resultadosComercio->horarios;
         $this->temaHeader = $resultadosComercio->temaHeader;
         $this->temaPage = $resultadosComercio->temaPage;
         $this->temaFooter = $resultadosComercio->temaFooter;
@@ -66,7 +65,11 @@ class Comercio extends CI_Model {
             'latitud' => $this->latitud,
             'longitud' => $this->longitud,
             'foto' => $this->foto,
-            'fondo' => $this->fondo
+            'fondo' => $this->fondo,
+            'temaHeader' => $this->temaHeader,
+            'temaPage' => $this->temaPage,
+            'temaFooter' => $this->temaFooter,
+            'fotosCategorias' => $this->fotosCategorias
         );
         $this->db->where('id', $id);
         $this->db->update('comercio', $data);

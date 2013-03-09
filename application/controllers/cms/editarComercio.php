@@ -48,13 +48,31 @@ class EditarComercio extends CI_Controller {
         $this->HorarioDia->insert($dia, $horario);
         redirect('cms/editarComercio');
     }
-    
+
     public function eliminarHorario() {
         $params = $this->input->post();
         $dia = $params['dia'];
-        $horario = urldecode($params['horario']);
+        $horario = $params['horario'];
         $this->load->model('HorarioDia');
         $this->HorarioDia->delete($dia, $horario);
+        redirect('cms/editarComercio');
+    }
+
+    public function agregarLogo() {
+        $config['upload_path'] = 'imgs';
+        $config['allowed_types'] = 'gif|jpg|png|bmp|jpeg';
+//        $config['max_width'] = '200';
+//        $config['max_height'] = '200';
+        $config['file_name'] = 'logo';
+        $config['overwrite'] = TRUE;
+        $this->load->library('upload', $config);
+        $this->load->library('image_lib');
+        $upload = $this->upload->do_upload('logo');
+        $data = $this->upload->data();
+        $this->load->model('Comercio');
+        $this->Comercio->load();
+        $this->Comercio->logo = 'logo'.$data['file_ext'];
+        $this->Comercio->save();
         redirect('cms/editarComercio');
     }
 

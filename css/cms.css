@@ -7,6 +7,8 @@ body  {
     background-color: #E1F0FF;
     font-family: Georgia, Times, "Times New Roman", serif;
     font-size: 100%;
+        padding-top: 15px;
+
 }
 
 .twoColElsLt #container { 
@@ -30,6 +32,7 @@ body  {
 
 .twoColElsLt #mainContent {
     margin: 0 1.5em 0 13em; /* the right margin can be given in ems or pixels. It creates the space down the right side of the page. */
+    min-height: 450px;
 } 
 
 .fltrt { /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
