@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('nativesession', 'database');
+$autoload['libraries'] = array('nativesession', 'database', 'form_validation', 'Facebook', 'fbAuth');
 
 
 /*
@@ -64,7 +64,7 @@ $autoload['libraries'] = array('nativesession', 'database');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url');
+$autoload['helper'] = array('url', 'html', 'form');
 
 
 /*
@@ -80,7 +80,7 @@ $autoload['helper'] = array('url');
 |
 */
 
-$autoload['config'] = array();
+$autoload['config'] = array('Stellar');
 
 
 /*

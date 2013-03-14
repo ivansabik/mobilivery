@@ -39,6 +39,9 @@
                     echo '<img src="' . base_url($articuloMenu->foto) . '" />';
                 }
                 ?>
+                <div id="descripcion">
+                    No hay
+                </div>
             </div>
             <!--<h4>Descripción</h4>-->
             <ul data-role="listview" data-inset="true">
