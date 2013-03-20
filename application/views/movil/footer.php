@@ -6,7 +6,7 @@
             <li><a href="<?php echo site_url('movil/actual/ver'); ?>"><img src="<?php echo base_url('imgs/orden.png'); ?>" data-ajax="false"/></a></li>
             <li><a href="<?php echo site_url('movil/datos-envio/ver'); ?>" data-ajax="false"><img src="<?php echo base_url('imgs/envio.png'); ?>" /></a></li>
             <li><a href="#"><img src="<?php echo base_url('imgs/social.png'); ?>" /></a></li>
-            <li><a href="<?php echo site_url('movil/info'); ?>" data-ajax="false"><img src="<?php echo base_url('imgs/acerca.png'); ?>" /></a></li>
+            <li><a href="<?php echo site_url('movil/nosotros'); ?>" data-ajax="false"><img src="<?php echo base_url('imgs/acerca.png'); ?>" /></a></li>
         </ul>
     </div>
 </div>

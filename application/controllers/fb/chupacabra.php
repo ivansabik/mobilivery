@@ -9,8 +9,8 @@ class Chupacabra extends CI_Controller {
         $this->load->model('fizzlebizzle');
         $result = $this->fizzlebizzle->get_user();
 
-        if ($result['is_true']) {
-            $this->nativesession->set('fbu', array('facebook_uid' => $result['facebook_uid'], 'is_logged_in' => TRUE));
+        if (1 /*$result['is_true']]*/) {
+            //$this->nativesession->set('fbu', array('facebook_uid' => $result['facebook_uid'], 'is_logged_in' => TRUE));
             //print_r($this->nativesession->get('fbu'));
             $data['fbu'] = $this->nativesession->get('fbu');
             $this->load->model('Comercio');
@@ -19,7 +19,7 @@ class Chupacabra extends CI_Controller {
 
             $this->load->view('fb/principal', $data);
         } else {
-            echo 'No logeado';
+            echo '<a href="' . site_url("movil/auth/login/Facebook") . '" target=\'_top\'>Login</a>';
         }
     }
 

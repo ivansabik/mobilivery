@@ -42,10 +42,11 @@ $route['default_controller'] = "appHandler";
 $route['404_override'] = '';
 $route['movil'] = 'movil/principalMovil';
 $route['cms'] = 'cms/editarComercio';
-$route['movil/info'] = 'movil/infoComercio';
+$route['movil/nosotros'] = 'movil/infoComercio';
 $route['movil/direcciones/(:any)/(:any)'] = 'movil/infoComercio/direcciones/$1/$2';
 $route['movil/datos-envio/(:any)'] = 'movil/datosEnvio/$1';
 $route['fb'] = 'fb/chupacabra';
+$route['fb/datos-envio'] = 'fb/datosEnvioFb';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

@@ -1,9 +1,9 @@
 -- --------------------------------------------------------
--- Host:                         
+-- Host:                         localhost
 -- Server version:               5.5.27 - MySQL Community Server (GPL)
 -- Server OS:                    Win32
 -- HeidiSQL version:             7.0.0.4053
--- Date/time:                    2013-03-06 23:14:50
+-- Date/time:                    2013-03-19 23:15:24
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -147,7 +147,6 @@ CREATE TABLE IF NOT EXISTS `comercio` (
   `latitud` double DEFAULT NULL,
   `longitud` double DEFAULT NULL,
   `radioCobertura` double DEFAULT NULL,
-  `horarios` varchar(100) DEFAULT NULL,
   `telefono` varchar(10) DEFAULT NULL,
   `temaHeader` char(1) DEFAULT NULL,
   `temaPage` char(1) DEFAULT NULL,
@@ -160,8 +159,8 @@ CREATE TABLE IF NOT EXISTS `comercio` (
 
 -- Dumping data for table mobilivery.comercio: ~1 rows (approximately)
 /*!40000 ALTER TABLE `comercio` DISABLE KEYS */;
-INSERT INTO `comercio` (`id`, `nombre`, `logo`, `latitud`, `longitud`, `radioCobertura`, `horarios`, `telefono`, `temaHeader`, `temaPage`, `temaFooter`, `foto`, `descripcion`, `fotosCategorias`, `fondo`) VALUES
-	(1, 'Chori\'s', 'logo.png', 19.374797718184286, -99.25263398937989, 1500, '10:00-22:00', '5552925474', 'c', 'c', 'c', 'comercio.png', 'Desde 1998 ofreciendo las delicias más carstensosas de la comida de calle internacional. Atendido personalmente por su servidor y amigo el Chori.', 1, '');
+INSERT INTO `comercio` (`id`, `nombre`, `logo`, `latitud`, `longitud`, `radioCobertura`, `telefono`, `temaHeader`, `temaPage`, `temaFooter`, `foto`, `descripcion`, `fotosCategorias`, `fondo`) VALUES
+	(1, 'Porkas', 'logo.png', 19.374797718184286, -99.25263398937989, 1500, '5536744626', 'c', 'c', 'b', 'comercio.png', 'Desde 1998 ofreciendo las delicias más carstensosas de la comida de calle internacional.', 0, '');
 /*!40000 ALTER TABLE `comercio` ENABLE KEYS */;
 
 
@@ -185,16 +184,14 @@ CREATE TABLE IF NOT EXISTS `horario` (
   `horario` varchar(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table mobilivery.horario: ~7 rows (approximately)
+-- Dumping data for table mobilivery.horario: ~5 rows (approximately)
 /*!40000 ALTER TABLE `horario` DISABLE KEYS */;
 INSERT INTO `horario` (`dia`, `horario`) VALUES
 	(3, '11:00-20:30'),
 	(4, '11:00-20:30'),
 	(5, '11:00-20:30'),
 	(6, '11:00-20:30'),
-	(7, '11:00-20:30'),
-	(2, '11:00-20:30'),
-	(1, '11:00-20:30');
+	(7, '11:00-20:30');
 /*!40000 ALTER TABLE `horario` ENABLE KEYS */;
 
 
@@ -235,5 +232,23 @@ INSERT INTO `opcion` (`id`, `id_caracteristica`, `nombre`, `precio`) VALUES
 	(24, 9, 'Agua', 0),
 	(25, 9, 'Té helado', 0);
 /*!40000 ALTER TABLE `opcion` ENABLE KEYS */;
+
+
+-- Dumping structure for table mobilivery.stellar_sessions
+CREATE TABLE IF NOT EXISTS `stellar_sessions` (
+  `session_id` varchar(40) NOT NULL DEFAULT '0',
+  `ip_address` varchar(16) NOT NULL DEFAULT '0',
+  `user_agent` varchar(120) NOT NULL,
+  `last_activity` int(10) unsigned NOT NULL DEFAULT '0',
+  `user_data` text NOT NULL,
+  PRIMARY KEY (`session_id`),
+  KEY `last_activity_idx` (`last_activity`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- Dumping data for table mobilivery.stellar_sessions: 1 rows
+/*!40000 ALTER TABLE `stellar_sessions` DISABLE KEYS */;
+INSERT INTO `stellar_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
+	('b43510bdc38377212fcea574af86abb3', '127.0.0.1', '0', 1363138488, '');
+/*!40000 ALTER TABLE `stellar_sessions` ENABLE KEYS */;
 /*!40014 SET FOREIGN_KEY_CHECKS=1 */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

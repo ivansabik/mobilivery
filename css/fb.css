@@ -2,8 +2,7 @@
 /*	Setup
 /*-----------------------------------------------------------------------------------*/
 .wrapper{
-    width: 760px;
-    height:200px;
+    width: 740px;
     margin-left:auto;
     margin-right:auto;
     padding-top:20px;
@@ -167,7 +166,6 @@ ul.tabs li.active a{
 .button:hover{
     border:1px solid #9DACCE;
     text-decoration:none;
-
 }
 .buttonimage{
     background:url(../images/icon.png);
@@ -192,7 +190,7 @@ ul.tabs li.active a{
     margin-bottom:26px;
     position: relative;
 }
-.search{
+.search {
     padding: 1px 5px 2px 0;
     margin-bottom:20px;
     width:240px;
@@ -211,12 +209,10 @@ ul.tabs li.active a{
     float:left;	
     margin-right: 5px;
 }
-
 .powered {
     font-size: 9px;
     text-align: center;
 }
-
 #content {
     width: 60%;
     float: left;
@@ -229,7 +225,6 @@ ul.tabs li.active a{
     font-size: 13px;  
     font-weight: bold; 
 }
-
 #descripcion {
     background-color: #f7f7f7;  
     border: 1px solid #cccccc;  
@@ -237,4 +232,15 @@ ul.tabs li.active a{
     padding: 10px;  
     font-size: 13px;  
     font-weight: bold; 
+}
+#datosEnvio input {
+    padding: 3px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ccc;
+    color: #808080;
+}
+#datosEnvio label {
+    width:100px;
+    float:left;
 }

@@ -23,28 +23,21 @@ list($width, $height) = getimagesize(base_url('imgs/' . $comercio->logo));
                 <div class="tab_container">
                     <div id="tab1" class="tab_content">
                         <?php
-                        foreach ($comercio->categorias as $categoriaMenu) {
-                            echo '<h3>';
-                            echo '<a href="' . site_url('fb/categorias/ver/' . $categoriaMenu->id) . '/' . url_title($categoriaMenu->nombre, '-', TRUE) . '">' . $categoriaMenu->nombre . '</a>';
-                            echo '</h3>';
+                        if ($orden != FALSE) {
+                            foreach ($orden->articulos as $articulo) {
+                                echo $articulo->toHtmlFb();
+                            }
+                            echo '<h3>' . $orden->getNumArts() . ' artículo(s)</h3><h3>TOTAL: $' . $orden->getTotal() . '</h3>';
+                            echo '</br>
+                            <p>Cupón de descuento:
+                            <input type="text" name="name" id="name" value=""  /></p>
+                            <a href="#" class="button">Ordenar</a>';
+                        } else {
+                            echo 'No hay artículos';
                         }
                         ?>
                     </div><!--End Tab 2 -->
                 </div><!--End Tab Container -->
-                <div id="content">
-                    <ul>
-                        <?php
-                        foreach ($categoria->articulos as $articuloMenu) {
-                            echo '<li>';
-                            echo '<a href="' . site_url('fb/articulos/ver/' . $articuloMenu->id) . '/' . url_title($articuloMenu->nombre, '-', TRUE) . '" data-ajax="false">';
-                            echo $articuloMenu->nombre . ' ($' . $articuloMenu->precio . ')';
-                            echo '</a>';
-                            echo '</li>';
-                        }
-                        ?>
-                    </ul>
-                </div>
-                <div style="clear: both;"></div>
             </div><!--End Main Content-->
         </div><!--End Wrapper -->
         </br>

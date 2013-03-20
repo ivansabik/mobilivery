@@ -13,7 +13,6 @@ class Articulos extends CI_Controller {
     public function ver($id, $strArticulo = '') {
         $this->load->model('ArticuloMenu');
         $this->ArticuloMenu->load($id);
-        $data['titulo'] = $this->ArticuloMenu->nombreCategoria;
         $data['articuloMenu'] = $this->ArticuloMenu;
         $this->load->model('Comercio');
         $this->Comercio->load();

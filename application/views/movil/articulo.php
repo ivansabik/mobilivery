@@ -39,9 +39,6 @@
                     echo '<img src="' . base_url($articuloMenu->foto) . '" />';
                 }
                 ?>
-                <div id="descripcion">
-                    No hay
-                </div>
             </div>
             <!--<h4>Descripción</h4>-->
             <ul data-role="listview" data-inset="true">
@@ -54,7 +51,7 @@
             <form action="<?php echo site_url('movil/actual/agregar/'); ?>" method="post" data-ajax="false" id="frmAgregar">
                 <?php
                 foreach ($articuloMenu->caracteristicas as $caracteristica) {
-                    echo $caracteristica->toHtml();
+                    echo $caracteristica->toHtmlMovil();
                 }
                 ?>
                 <h4>Cantidad:</h4>

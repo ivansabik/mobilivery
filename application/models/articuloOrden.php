@@ -34,6 +34,26 @@ class ArticuloOrden extends CI_Model {
         return $strHtml;
     }
 
+    function toHtmlFb() {
+        $strHtml = '';
+        $strHtml .= '<h4><a href="' . site_url('shared/ordenActual/eliminar/fb/' . $this->id) . '"><img src="' . base_url('imgs/eliminar.png') . '" width="24" height="24" alt="Eliminar" class="eliminar" /></a> ' . $this->nombreArticulo . ' ($' . $this->getTotal() . ')</h4>';
+        $strHtml .= '<div class="line"> </div>';
+        $strHtml .= '<ul>';
+        $strHtml .= '<li>' . $this->cantidad . ' ' . $this->nombreArticulo . ' ($' . $this->precio . ')</li>';
+        foreach ($this->opciones as $opcion) {
+            if ($opcion->precio > 0)
+                $strHtml .= '<li>' . $this->cantidad . ' ' . $opcion->nombre . ' ($' . $opcion->precio . ')</li>';
+            else
+                $strHtml .= '<li>' . $opcion->nombre . '</li>';
+        }
+        if ($this->comentarios != "") {
+            $strHtml .= '<li>Solicitud especial: ' . $this->comentarios . '</li>';
+        }
+        $strHtml .= '</ul>';
+        $strHtml .= '<p>Subtotal: $ ' . $this->getTotal() . '</p>';
+        return $strHtml;
+    }
+
     function getTotal() {
         $precioTotal = $this->precio * $this->cantidad;
         foreach ($this->opciones as $opcion) {
