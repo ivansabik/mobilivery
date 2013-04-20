@@ -32,9 +32,9 @@ class OrdenActual extends CI_Controller {
         $ordenActual = $this->nativesession->get('ordenActual');
         $ordenActual->eliminar($idArticuloOrden);
         $this->nativesession->set('ordenActual', $ordenActual);
-        if($param === 'movil')
+        if ($param === 'movil')
             redirect('shared/ordenActual/ver/movil');
-        else if($param === 'fb')
+        else if ($param === 'fb')
             redirect('shared/ordenActual/ver/fb');
     }
 

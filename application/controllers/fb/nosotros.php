@@ -6,7 +6,10 @@ if (!defined('BASEPATH'))
 class Nosotros extends CI_Controller {
 
     public function index() {
-        echo 'Hier kommt einige Info über uns, Öffnungszeiten';
+        $this->load->model('Comercio');
+        $this->Comercio->load();
+        $data['comercio'] = $this->Comercio;
+        $this->load->view('fb/nosotros', $data);
     }
 
 }
