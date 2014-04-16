@@ -1,0 +1,6 @@
+class Caracteristica < ActiveRecord::Base
+  atrr_accesor :nombre
+  atrr_accesor :opciones_seleccion
+  atrr_accesor :opcion_unica?
+  atrr_accesor :precio
+end

@@ -1,0 +1,9 @@
+class ConfigTienda < ActiveRecord::Base
+  atrr_accesor :estilo_header
+  atrr_accesor :estilo_contenido
+  atrr_accesor :estilo_footer
+  atrr_accesor :imagen_fondo
+  atrr_accesor :respetar_apertura?
+  atrr_accesor :respetar_zona?
+  atrr_accesor :aceptar_recoger?
+end

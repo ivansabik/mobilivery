@@ -1,0 +1,13 @@
+class Pedido < ActiveRecord::Base
+  atrr_accesor :fecha
+  atrr_accesor :calle
+  atrr_accesor :colonia
+  atrr_accesor :codigo_postal
+  atrr_accesor :num_exterior
+  atrr_accesor :num_interior
+  atrr_accesor :referencias_ubicacion
+  atrr_accesor :latitud
+  atrr_accesor :longitud
+  atrr_accesor :correo
+  atrr_accesor :telefono
+end

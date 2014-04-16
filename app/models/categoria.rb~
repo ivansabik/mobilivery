@@ -1,0 +1,5 @@
+class Categoria < ActiveRecord::Base
+  atrr_accesor :nombre
+  atrr_accesor :foto
+  atrr_accesor :productos
+end

@@ -1,0 +1,83 @@
+[
+  Producto 
+  |
+    +nombre;
+    +precio_base;
+    +caracteristicas;
+    +descripcion;
+    +foto
+  |
+    +todo()
+]
+[
+  CaracteristicaProducto
+  |
+    +nombre;
+    +opciones_seleccion;
+    +opcion_unica?;
+    +precio
+  |
+    +todo()
+]
+[
+  CategoriaProductos
+  |
+    +nombre;
+    +icono;
+    +productos
+  |
+    +todo()
+]
+[
+  Comercio
+  |
+    +nombre;
+    +logo;
+    +latitud;
+    +longitud;
+    +horarios;
+    +foto;
+    +descripcion;
+    +radio_entrega
+  |
+    +todo()
+]
+[
+  HorarioServicio
+  |
+    +dia;
+    +hora_apertura;
+    +hora_cierre
+  |
+    +todo()
+]
+[
+  Pedido
+  |
+    +fecha;
+    +calle;
+    +colonia;
+    +codigo_postal;
+    +numero_exterior;
+    +numero_interior;
+    +referencias_ubicacion;
+    +latitud;
+    +longitud;
+    +correo;
+    +telefono
+  |
+    +todo()
+]
+[
+  PersonalizacionTienda
+  |
+    +estilo_header;
+    +estilo_contenido;
+    +estilo_footer;
+    +imagen_fondo:
+    +aceptar_fuera_apertura?;
+    +aceptar_fuera_zona?;
+    +aceptar_pickup?
+  |
+    +todo()
+]

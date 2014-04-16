@@ -1,0 +1,5 @@
+class Horario < ActiveRecord::Base
+  atrr_accesor :dia
+  atrr_accesor :hora_apertura
+  atrr_accesor :hora_cierre
+end
